@@ -1,69 +1,48 @@
-##Summary
-This project uses a neural network to predict monthly rent prices for apartments based on their features such as size, location, and number of rooms. The model helps renters and landlords get accurate price estimates to make better decisions.
+# CelticPig AI: Monitoreo inteligente para la preservación del cerdo celta
 
-Background
-Finding a fair rent price for apartments is a common problem in many cities. Renters want to avoid overpaying, and landlords want to price competitively. However, prices vary widely depending on many factors.
+Final project for the Building AI course
 
-My motivation for this project comes from the difficulty I faced finding fair rent prices in my city. Automating this process with AI can save time and reduce guesswork.
+## Summary
 
-Problems this solves:
+Building AI course project. CelticPig AI es una solución basada en visión por computadora y aprendizaje automático para monitorear la salud y comportamiento del cerdo celta, una raza porcina autóctona en peligro de extinción. Apoya a pequeños productores en zonas rurales.
 
-Renters can estimate expected prices before searching
+## Background
 
-Landlords can set competitive rents based on market data
+El cerdo celta, originario del noroeste de España, es una raza porcina valorada por su carne, pero en riesgo de desaparición debido a su baja rentabilidad y dificultades para ser criada con medios modernos. Esto afecta directamente a pequeños ganaderos rurales y a la biodiversidad ganadera.
 
-Helps make rental markets more transparent and fair
+Las dificultades que intenta resolver este proyecto incluyen:
+* La detección tardía de enfermedades en cerdos.
+* El escaso control del ciclo reproductivo en explotaciones extensivas.
+* La falta de herramientas digitales para el manejo de razas autóctonas.
 
-How is it used?
-Users input details about an apartment, like size (in square meters), number of bedrooms, floor level, and neighborhood. The neural network processes these inputs and outputs a predicted monthly rent price.
+Mi motivación personal surge del interés en el desarrollo sostenible del medio rural y en la aplicación de tecnologías avanzadas a la protección de razas en peligro.
 
-Typical use cases:
+## How is it used?
 
-Renters comparing offers in real estate apps
+El sistema se instala en granjas rurales. Usa cámaras de bajo coste (como las de Raspberry Pi) y sensores que capturan datos visuales y ambientales. Una red neuronal analiza en tiempo real:
+* comportamiento anómalo (falta de movimiento, aislamiento),
+* signos visibles de enfermedad (letargo, heridas),
+* patrones reproductivos (monta, celo).
 
-Landlords evaluating new listings
+Los usuarios (ganaderos, veterinarios, técnicos) reciben alertas y recomendaciones a través de una app móvil o interfaz web.
 
-Real estate agents providing price estimates
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Cerdo_Celta_de_Galicia_2.jpg" width="400">
 
-Example user workflow:
+El sistema está pensado para operar incluso con conectividad limitada, almacenando datos localmente y enviándolos cuando haya red disponible.
 
-Enter apartment details
+## Data sources and AI methods
 
-Press "Predict Rent"
+Se recogen los siguientes datos:
+* Imágenes y video de los animales en el corral.
+* Sensores de temperatura corporal, ambiente y peso.
 
-Receive an estimated rent price based on current market data
+Fuentes de datos:
+* Propias, mediante colaboración con granjas piloto.
+* Repositorios abiertos de imágenes ganaderas para entrenamiento inicial.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Apartment_building_Brooklyn_NYC.jpg/320px-Apartment_building_Brooklyn_NYC.jpg" width="300">
-Data sources and AI methods
-The dataset consists of publicly available apartment rental listings from online real estate platforms collected over the past year.
+Técnicas de IA utilizadas:
+* Visión por computadora con modelos como YOLOv8 para detección de cerdos y signos visibles.
+* Clasificación con redes neuronales convolucionales (CNN) para analizar patrones de comportamiento.
 
-AI methods:
+Código de ejemplo:
 
-Neural networks with ReLU activation in hidden layers
-
-Regression output layer for price prediction
-
-Trained using mean squared error loss function
-
-Challenges
-The model may not capture sudden market changes (e.g., economic shocks)
-
-Ethical considerations: prices should not reinforce unfair discrimination based on location or demographics
-
-Data bias if dataset is incomplete or unbalanced
-
-Does not account for tenant creditworthiness or landlord preferences
-
-What next?
-Incorporate additional features like amenities, building age, or proximity to public transport
-
-Collect user feedback to improve model accuracy
-
-Explore more advanced architectures (e.g., deep learning with more layers)
-
-Develop a mobile app or API for easy access
-
-Acknowledgments
-Inspired by the Building AI course and logistic regression foundations
-
-Apartment image: Apartment Building Brooklyn NYC by Jeffrey Zeldman / CC BY 2.0
