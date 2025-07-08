@@ -1,113 +1,72 @@
-Título del Proyecto: Generador de Rutas de Aprendizaje Personalizadas con IA
-Proyecto final para el curso "Building AI"
+Apartment Rent Predictor
+Final project for the Building AI course
 
-Resumen
-Este proyecto propone un sistema de IA que genera rutas de aprendizaje personalizadas para estudiantes de cualquier materia. Analizando el conocimiento actual, el estilo de aprendizaje y los objetivos de un usuario, el sistema creará un plan de estudios a medida con recursos seleccionados para optimizar su viaje de aprendizaje.
+Summary
+This project uses a neural network to predict monthly rent prices for apartments based on their features such as size, location, and number of rooms. The model helps renters and landlords get accurate price estimates to make better decisions.
 
-Contexto (Background)
-El enfoque único y generalizado de la educación a menudo deja a los estudiantes aburridos o abrumados. El problema de las experiencias de aprendizaje ineficientes y desmotivadoras es muy común, desde la escuela primaria hasta el desarrollo profesional. Mi motivación personal surge de mis propias experiencias y de observar a amigos y familiares luchar por encontrar los recursos adecuados y un camino claro al aprender nuevas habilidades en línea. Este tema es crucial porque la educación personalizada puede mejorar significativamente los resultados del aprendizaje, aumentar la confianza y fomentar un amor por el aprendizaje para toda la vida en un mundo cada vez más impulsado por el conocimiento.
+Background
+Finding a fair rent price for apartments is a common problem in many cities. Renters want to avoid overpaying, and landlords want to price competitively. However, prices vary widely depending on many factors.
 
-Problema 1: Los estudiantes a menudo no saben por dónde empezar o qué aprender a continuación.
+My motivation for this project comes from the difficulty I faced finding fair rent prices in my city. Automating this process with AI can save time and reduce guesswork.
 
-Problema 2: Los planes de estudio genéricos no se adaptan a las velocidades y preferencias de aprendizaje individuales.
+Problems this solves:
 
-Problema 3: Encontrar materiales de aprendizaje relevantes y de alta calidad puede ser difícil y llevar mucho tiempo.
+Renters can estimate expected prices before searching
 
-¿Cómo se utiliza?
-Un usuario comenzaría creando un perfil y realizando una evaluación inicial para medir su comprensión actual de una materia elegida (p. ej., programación en Python, historia del arte del Renacimiento o cálculo). También respondería a un breve cuestionario para identificar su estilo de aprendizaje (p. ej., visual, auditivo, cinestésico) y definir sus metas (p. ej., "Quiero construir una aplicación web" o "Quiero entender las principales obras de Leonardo da Vinci").
+Landlords can set competitive rents based on market data
 
-La IA procesaría esta información para generar una ruta de aprendizaje dinámica, presentada como un mapa de ruta interactivo. Este mapa de ruta constaría de módulos, y cada módulo contendría una mezcla de recursos como artículos, vídeos, simulaciones interactivas y cuestionarios, todos adaptados al perfil del usuario.
+Helps make rental markets more transparent and fair
 
-https://i.imgur.com/example-learning-path.png" width="450">
+How is it used?
+Users input details about an apartment, like size (in square meters), number of bedrooms, floor level, and neighborhood. The neural network processes these inputs and outputs a predicted monthly rent price.
 
-El sistema está diseñado para ser utilizado por estudiantes autónomos, alumnos que buscan educación complementaria y profesionales que buscan mejorar sus habilidades. La interfaz sería una aplicación web limpia e intuitiva, accesible desde cualquier dispositivo.
+Typical use cases:
 
-Fuentes de datos y métodos de IA
-La IA se basaría en varias fuentes de datos:
+Renters comparing offers in real estate apps
 
-Una vasta base de datos de recursos de aprendizaje seleccionados: Se construiría inicialmente extrayendo y etiquetando contenido de sitios web educativos de prestigio (p. ej., Khan Academy, Coursera, edX, revistas académicas) y se ampliaría posteriormente a través de las contribuciones y valoraciones de los usuarios.
+Landlords evaluating new listings
 
-Datos de interacción del usuario: El sistema aprenderá y adaptará continuamente la ruta de aprendizaje basándose en el progreso del usuario, los recursos con los que más interactúa y su rendimiento en los cuestionarios.
+Real estate agents providing price estimates
 
-Las principales técnicas de IA que se utilizarían incluirían:
+Example user workflow:
 
-Técnica de IA
+Enter apartment details
 
-Descripción
+Press "Predict Rent"
 
-Procesamiento del Lenguaje Natural (PLN)
+Receive an estimated rent price based on current market data
 
-Para analizar y etiquetar el contenido de los recursos de aprendizaje.
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Apartment_building_Brooklyn_NYC.jpg/320px-Apartment_building_Brooklyn_NYC.jpg" width="300">
+Data sources and AI methods
+The dataset consists of publicly available apartment rental listings from online real estate platforms collected over the past year.
 
-Aprendizaje Automático (Clustering)
+AI methods:
 
-Para agrupar a usuarios con estilos de aprendizaje y lagunas de conocimiento similares.
+Neural networks with ReLU activation in hidden layers
 
-Sistemas de Recomendación
+Regression output layer for price prediction
 
-Para sugerir los materiales de aprendizaje más relevantes para cada usuario en cada etapa de su ruta.
+Trained using mean squared error loss function
 
-Aprendizaje por Refuerzo
+Challenges
+The model may not capture sudden market changes (e.g., economic shocks)
 
-Para optimizar las rutas de aprendizaje con el tiempo, observando qué secuencias de recursos conducen a los mejores resultados.
+Ethical considerations: prices should not reinforce unfair discrimination based on location or demographics
 
+Data bias if dataset is incomplete or unbalanced
 
-Exportar a Hojas de cálculo
-Un ejemplo de código simple para obtener y procesar contenido educativo en línea podría ser así:
+Does not account for tenant creditworthiness or landlord preferences
 
-Python
+What next?
+Incorporate additional features like amenities, building age, or proximity to public transport
 
-import requests
-from bs4 import BeautifulSoup
+Collect user feedback to improve model accuracy
 
-def obtener_texto_articulo(url):
-    try:
-        respuesta = requests.get(url)
-        soup = BeautifulSoup(respuesta.content, 'html.parser')
-        # Este es un ejemplo simplificado; una implementación real necesitaría un análisis más robusto
-        parrafos = soup.find_all('p')
-        texto_articulo = ' '.join([p.get_text() for p in parrafos])
-        return texto_articulo
-    except Exception as e:
-        print(f"Error al obtener el artículo: {e}")
-        return ""
+Explore more advanced architectures (e.g., deep learning with more layers)
 
-# Ejemplo de uso:
-url_articulo = "https://es.wikipedia.org/wiki/Aprendizaje_autom%C3%A1tico"
-texto = obtener_texto_articulo(url_articulo)
-# Este texto luego se introduciría en un modelo de PLN para su análisis y etiquetado.
-print(texto[:500] + "...")
-Desafíos
-Este proyecto no resuelve el problema de la falta de motivación intrínseca en un estudiante. Si bien puede hacer que el aprendizaje sea más atractivo, no puede obligar a alguien a aprender.
+Develop a mobile app or API for easy access
 
-Limitaciones y Consideraciones Éticas:
+Acknowledgments
+Inspired by the Building AI course and logistic regression foundations
 
-Sesgo en los Datos: El conjunto de datos inicial de recursos de aprendizaje podría tener sesgos inherentes (p. ej., estar predominantemente en inglés o desde una perspectiva occidental). Es crucial buscar e incluir activamente recursos diversos.
-
-Privacidad de Datos: El sistema recopilaría datos sensibles sobre los hábitos de aprendizaje y las lagunas de conocimiento de los usuarios. Serían esenciales medidas estrictas de privacidad y seguridad de los datos.
-
-Control de Calidad: Asegurar la calidad y precisión de todos los recursos seleccionados sería un desafío significativo y continuo. Sería necesario un sistema robusto de segnalazione y revisión basado en la comunidad.
-
-Excesiva Confianza en la IA: Existe el riesgo de que los estudiantes se vuelvan demasiado dependientes del sistema y menos capaces de autodirigir su aprendizaje en el futuro. El sistema debería diseñarse para fomentar las habilidades metacognitivas.
-
-¿Qué sigue? (What next?)
-Este proyecto podría expandirse de varias maneras:
-
-Aprendizaje Colaborativo: Integrar funciones que permitan a los usuarios con objetivos de aprendizaje similares conectarse, formar grupos de estudio y aprender unos de otros.
-
-Panel de Control para Profesores/Mentores: Crear una versión para que los educadores sigan el progreso de sus estudiantes e identifiquen áreas donde necesitan apoyo adicional.
-
-Integración con la Educación Formal: Colaborar con escuelas y universidades para utilizar la plataforma como una herramienta de aprendizaje semipresencial (blended learning).
-
-Certificación: Ofrecer certificados de finalización para ciertas rutas de aprendizaje que podrían ser reconocidos por los empleadores.
-
-Para llevar adelante este proyecto, necesitaría la ayuda de personas con experiencia en desarrollo web (tanto front-end como back-end), diseño UX/UI y aprendizaje automático más avanzado, particularmente en aprendizaje por refuerzo y sistemas de recomendación a gran escala.
-
-Agradecimientos
-Esta idea de proyecto se inspiró en la naturaleza flexible y personalizada del propio curso Elements of AI.
-
-La inspiración también provino de plataformas existentes como Khan Academy y Duolingo, que han demostrado el poder de la tecnología en la educación.
-
-La plantilla del README y la guía fueron proporcionadas por Reaktor y la Universidad de Helsinki como parte del curso Building AI.
-
-Imagen de Ejemplo: Una imagen conceptual creada con fines ilustrativos.
+Apartment image: Apartment Building Brooklyn NYC by Jeffrey Zeldman / CC BY 2.0
