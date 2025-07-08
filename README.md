@@ -1,7 +1,4 @@
-Apartment Rent Predictor
-Final project for the Building AI course
-
-Summary
+##Summary
 This project uses a neural network to predict monthly rent prices for apartments based on their features such as size, location, and number of rooms. The model helps renters and landlords get accurate price estimates to make better decisions.
 
 Background
