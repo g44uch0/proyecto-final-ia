@@ -44,5 +44,38 @@ Técnicas de IA utilizadas:
 * Visión por computadora con modelos como YOLOv8 para detección de cerdos y signos visibles.
 * Clasificación con redes neuronales convolucionales (CNN) para analizar patrones de comportamiento.
 
-Código de ejemplo:
+
+## Challenges
+
+Limitaciones actuales:
+* La IA no puede reemplazar el juicio profesional veterinario.
+* La calidad de las imágenes puede verse afectada por condiciones ambientales (lluvia, barro, poca luz).
+* El etiquetado manual de imágenes requiere mucho tiempo.
+* Riesgos éticos relacionados con la privacidad y uso de datos personales de los ganaderos.
+
+Consideraciones:
+* Asegurar el consentimiento de los usuarios para la recopilación de datos.
+* Explicar el funcionamiento del sistema de forma comprensible para fomentar su adopción.
+
+## What next?
+
+El proyecto puede crecer hacia:
+* Integración con sistemas de trazabilidad agroalimentaria.
+* Extensión a otras razas autóctonas o en peligro.
+* Colaboración con universidades y centros tecnológicos rurales.
+
+Necesidades futuras:
+* Más granjas piloto para validación.
+* Apoyo técnico en hardware resistente para campo.
+* Especialistas en UX para una app adaptada a usuarios rurales.
+
+## Acknowledgments
+
+* Inspirado por el trabajo de conservación de ASOPORCEL (Asociación de Criadores de Ganado Celta).
+* Imágenes de Wikimedia Commons utilizadas bajo licencia libre:
+  [Cerdo Celta por Zarateman](https://commons.wikimedia.org/wiki/File:Cerdo_Celta_de_Galicia.jpg) / CC0 1.0
+* Modelo YOLOv8 desarrollado por Ultralytics ([GitHub](https://github.com/ultralytics/ultralytics))
+* Curso Building AI por Reaktor & Universidad de Helsinki
+
+
 
